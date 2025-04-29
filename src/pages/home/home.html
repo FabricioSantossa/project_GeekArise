@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geek Arise</title>
+    <style>
+        .component-error {
+            background: #ffebee;
+            border: 2px dashed #f44336;
+            padding: 15px;
+            margin: 10px 0;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container do Header -->
+    <div id="header-container">
+        <div class="component-error">
+            Carregando header... (se esta mensagem permanecer, verifique o console)
+        </div>
+    </div>
+
+    <!-- Seu conteúdo principal -->
+    <main>
+        <!-- Conteúdo da home -->
+    </main>
+
+    <!-- Container do Footer -->
+    <div id="footer-container">
+        <div class="component-error">
+            Carregando footer... (se esta mensagem permanecer, verifique o console)
+        </div>
+    </div>
+
+    <script>
+        // Configuração de caminhos - AJUSTE ESTE VALOR!
+        const BASE_PATH = '/src/pages/home';
+
+        async function loadComponent(componentName, containerId) {
+            try {
+                const path = `${BASE_PATH}/componentes/${componentName}/${componentName}.html`;
+                const response = await fetch(path);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error(`Falha ao carregar ${componentName}:`, error);
+                document.getElementById(containerId).innerHTML = `
+                    <div class="component-error">
+                        Erro ao carregar ${componentName}.<br>
+                        Verifique: <br>
+                        - Se o arquivo existe <br>
+                        - Se o caminho está correto <br>
+                        - Console para detalhes (F12)
+                    </div>
+                `;
+            }
+        }
+
+        // Carrega os componentes quando a página estiver pronta
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('headerPadrao', 'header-container');
+            loadComponent('footerPadrao', 'footer-container');
+        });
+    </script>
+</body>
+</html>

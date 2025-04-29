@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin:0;
+    padding: 0;
+}
+.containerHome{
+    display: flex;
+}
+.box-infos{
+    display: flex;
+    background:linear-gradient(to right, #00c6ff, #0072ff);
+}
