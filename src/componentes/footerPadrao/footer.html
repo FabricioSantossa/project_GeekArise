@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Padrão</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.module.css">
+</head>
+<body>
+    <footer class="footer-padrao">
+        <div class="footer-conteudo">
+            <!-- Ícone central como imagem -->
+            <div class="footer-logo">
+                <div>
+                    <img src="../../../public/img/Logo Geek Arise.svg" alt="Logo Geek Arise" id="icone-central">
+                </div>
+            </div>
+            
+            <!-- Links do footer -->
+            <div class="footer-links">
+                <a href="/sobre">Sobre Nós</a>
+                <a href="/produtos">Produtos</a>
+                <a href="/contato">Contato</a>
+                <a href="/blog">Blog</a>
+                <a href="/politica">Política de Privacidade</a>
+            </div>
+            
+            <!-- Redes sociais -->
+            <div class="footer-redes-sociais">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+            
+            <!-- Direitos autorais -->
+            <div class="footer-direitos">
+                <p>&copy; <span id="ano-atual">2023</span> Geek Arise. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Atualiza o ano automaticamente
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+        
+        // Efeito hover no ícone central
+        const iconeCentral = document.getElementById('icone-central');
+        if (iconeCentral) {
+            iconeCentral.addEventListener('mouseenter', () => {
+                iconeCentral.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            iconeCentral.addEventListener('mouseleave', () => {
+                iconeCentral.style.transform = 'scale(1)';
+            });
+        }
+    </script>
+</body>
+</html>
